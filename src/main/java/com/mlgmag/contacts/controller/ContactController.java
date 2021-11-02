@@ -1,6 +1,6 @@
 package com.mlgmag.contacts.controller;
 
-import com.mlgmag.contacts.model.Contact;
+import com.mlgmag.contacts.entity.Contact;
 import com.mlgmag.contacts.service.ContactService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

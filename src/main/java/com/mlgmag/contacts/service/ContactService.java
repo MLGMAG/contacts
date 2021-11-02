@@ -1,6 +1,6 @@
 package com.mlgmag.contacts.service;
 
-import com.mlgmag.contacts.model.Contact;
+import com.mlgmag.contacts.entity.Contact;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
