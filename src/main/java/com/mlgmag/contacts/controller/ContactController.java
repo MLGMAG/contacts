@@ -19,7 +19,6 @@ public class ContactController {
     }
 
     @GetMapping
-    @ResponseStatus(code = HttpStatus.OK, reason = "OK")
     public ContactsResponseDto getContactsByNameFilter(@RequestParam(name = "nameFilter") String nameFilter) {
         ContactsResponseDto response = new ContactsResponseDto();
         List<Contact> filteredContacts = contactService.getContactsByNameFilter(nameFilter);
