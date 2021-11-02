@@ -1,11 +1,10 @@
 package com.mlgmag.contacts.controller;
 
+import com.mlgmag.contacts.dto.ContactsResponseDto;
 import com.mlgmag.contacts.entity.Contact;
 import com.mlgmag.contacts.service.ContactService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,8 +19,12 @@ public class ContactController {
     }
 
     @GetMapping
-    public List<Contact> getContactsByNameFilter(@RequestParam(name = "nameFilter") String nameFilter) {
-        return contactService.getContactsByNameFilter(nameFilter);
+    @ResponseStatus(code = HttpStatus.OK, reason = "OK")
+    public ContactsResponseDto getContactsByNameFilter(@RequestParam(name = "nameFilter") String nameFilter) {
+        ContactsResponseDto response = new ContactsResponseDto();
+        List<Contact> filteredContacts = contactService.getContactsByNameFilter(nameFilter);
+        response.setContacts(filteredContacts);
+        return response;
     }
 
 }
